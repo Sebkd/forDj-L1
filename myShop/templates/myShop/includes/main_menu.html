@@ -1,0 +1,13 @@
+<a href="{% url 'index' %}" class="logo"></a>
+<ul class="menu">
+    <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == link.href %}
+active
+{% endif %}">{{links_menu.0}}</a></li>
+    <li><a href="{% url 'products:index' %}" class="{% if request.resolver_match.url_name == link.href %}
+active
+{% endif %}">{{links_menu.1}}</a></li>
+    <li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == link.href %}
+active
+{% endif %}">{{links_menu.2}}</a></li>
+</ul>
+<a href="#" class="search"></a>
