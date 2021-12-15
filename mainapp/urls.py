@@ -4,7 +4,9 @@ from django.urls import path, include
 from .views import products
 from myShop.views import index
 
+app_name = 'mainapp'
+
 urlpatterns = [
-    path('', products),
+    path('', products, name='index'),
 
 ]
