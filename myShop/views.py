@@ -1,9 +1,23 @@
 from django.shortcuts import render
 
 
+
+
 def index(request):
-    return render(request, 'myShop/index.html')
+    title = 'myShop'
+    links_menu = ['домой', 'продукты', 'контакты',]
+    context_page = {
+        'title': title,
+        'links_menu': links_menu,
+    }
+    return render(request, 'myShop/index.html', context=context_page)
 
 
 def contacts(request):
-    return render(request, 'myShop/contacts.html')
+    title = 'контакты'
+    links_menu = ['домой', 'продукты', 'контакты',]
+    context_page = {
+        'title': title,
+        'links_menu': links_menu,
+    }
+    return render(request, 'myShop/contacts.html', context=context_page)
