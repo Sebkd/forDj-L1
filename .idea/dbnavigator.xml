@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7">
-        <schema name="main" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="37864d6a-3620-4ada-ae02-eb494a699aa7">
@@ -43,11 +39,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_productcategory" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_product" active-filter-id="73a01bc2-4060-4b10-8b84-c14b18025abf">
-      <filter id="73a01bc2-4060-4b10-8b84-c14b18025abf" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="id" operator="=" value="" active="true" />
-      </filter>
-    </filter-actions>
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_product" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -78,7 +70,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="37864d6a-3620-4ada-ae02-eb494a699aa7" active="true">
+      <connection id="37864d6a-3620-4ada-ae02-eb494a699aa7" active="false">
         <database>
           <name value="shop" />
           <description value="" />

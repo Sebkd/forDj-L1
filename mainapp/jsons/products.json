@@ -1,0 +1,64 @@
+[{
+      "category": 3,
+      "name": "������ �������",
+      "image": "products_images/product-2.jpg",
+      "short_desc": "������� ������",
+      "description": "����������������������������������������",
+      "price": "3500.00",
+      "quantity": 7
+    },
+  {
+      "category": 3,
+      "name": "���� ���������",
+      "image": "products_images/product-4-sm.jpg",
+      "short_desc": "������� ������",
+      "description": "������������������������������������������",
+      "price": "7600.00",
+      "quantity": 3
+    },
+  {
+      "category": 1,
+      "name": "������ ������",
+      "image": "products_images/product-4.jpg",
+      "short_desc": "����������� ������",
+      "description": "����������������������������������������������������",
+      "price": "17000.00",
+      "quantity": 2
+  },
+  {
+      "category": 4,
+      "name": "�����",
+      "image": "products_images/product-3-sm.jpg",
+      "short_desc": "�������",
+      "description": "����������������������������������\\��\\�����������������������������",
+      "price": "25000.00",
+      "quantity": 1
+  },
+  {
+      "category": 2,
+      "name": "����� ��������",
+      "image": "products_images/product-2-sm.jpg",
+      "short_desc": "����������� ����",
+      "description": "������������������������������������������������������������������",
+      "price": "1299.00",
+      "quantity": 120
+  },
+  {
+      "category": 2,
+      "name": "����� ���������",
+      "image": "products_images/product-5-sm.jpg",
+      "short_desc": "��� �����",
+      "description": "������������������������������������������������",
+      "price": "5600.00",
+      "quantity": 12
+  },
+  {
+      "category": 4,
+      "name": "����� ���",
+      "image": "products_images/product-1_62lgMcI.jpg",
+      "short_desc": "����������� ����",
+      "description": "��������������",
+      "price": "2300.00",
+      "quantity": 16
+  }
+  ]
