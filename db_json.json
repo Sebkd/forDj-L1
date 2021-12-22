@@ -1,0 +1,133 @@
+[
+  {
+    "model": "mainapp.productcategory",
+    "pk": 3,
+    "fields": {
+      "name": "����",
+      "description": "",
+      "created": "2021-12-20T22:34:06.692",
+      "update": "2021-12-20T22:34:06.692"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 4,
+    "fields": {
+      "name": "��������",
+      "description": "",
+      "created": "2021-12-20T22:34:15.477",
+      "update": "2021-12-20T22:34:15.477"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 5,
+    "fields": {
+      "name": "������",
+      "description": "",
+      "created": "2021-12-20T22:34:22.170",
+      "update": "2021-12-20T22:34:22.170"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 6,
+    "fields": {
+      "name": "���",
+      "description": "",
+      "created": "2021-12-20T22:34:26.704",
+      "update": "2021-12-20T22:34:26.704"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 3,
+      "name": "������ �������",
+      "image": "products_images/product-2.jpg",
+      "short_desc": "������� ������",
+      "description": "����������������������������������������",
+      "price": "3500.00",
+      "quantity": 7
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "name": "���� ���������",
+      "image": "products_images/product-4-sm.jpg",
+      "short_desc": "������� ������",
+      "description": "������������������������������������������",
+      "price": "7600.00",
+      "quantity": 3
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 5,
+      "name": "������ ������",
+      "image": "products_images/product-4.jpg",
+      "short_desc": "����������� ������",
+      "description": "����������������������������������������������������",
+      "price": "17000.00",
+      "quantity": 2
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 5,
+    "fields": {
+      "category": 4,
+      "name": "�����",
+      "image": "products_images/product-3-sm.jpg",
+      "short_desc": "�������",
+      "description": "����������������������������������\\��\\�����������������������������",
+      "price": "25000.00",
+      "quantity": 1
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 6,
+    "fields": {
+      "category": 6,
+      "name": "����� ��������",
+      "image": "products_images/product-2-sm.jpg",
+      "short_desc": "����������� ����",
+      "description": "������������������������������������������������������������������",
+      "price": "1299.00",
+      "quantity": 120
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 7,
+    "fields": {
+      "category": 6,
+      "name": "����� ���������",
+      "image": "products_images/product-5-sm.jpg",
+      "short_desc": "��� �����",
+      "description": "������������������������������������������������",
+      "price": "5600.00",
+      "quantity": 12
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 8,
+    "fields": {
+      "category": 5,
+      "name": "����� ���",
+      "image": "products_images/product-1_62lgMcI.jpg",
+      "short_desc": "����������� ����",
+      "description": "��������������",
+      "price": "2300.00",
+      "quantity": 16
+    }
+  }
+]
