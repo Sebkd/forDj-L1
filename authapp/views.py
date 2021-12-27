@@ -57,7 +57,8 @@ def edit(request):
         if edit_form.is_valid ():
             edit_form.save ()
             return HttpResponseRedirect (reverse ('auth:edit'))
-        else:
-            edit_form = ShopUserEditForm (instance = request.user)
-        content = {'title': title, 'edit_form': edit_form}
-        return render (request, 'authapp/edit.html', content)
+    else:
+        edit_form = ShopUserEditForm (instance = request.user)
+
+    content = {'title': title, 'edit_form': edit_form}
+    return render (request, 'authapp/edit.html', content)
