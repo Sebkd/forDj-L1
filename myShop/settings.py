@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'authapp',
 ]
 
+AUTH_USER_MODEL = 'authapp.ShopUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

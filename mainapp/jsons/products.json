@@ -1,5 +1,5 @@
 [{
-      "category": 3,
+      "category": 5,
       "name": "кресло офисное",
       "image": "products_images/product-2.jpg",
       "short_desc": "Строгий дизайн",
@@ -8,7 +8,7 @@
       "quantity": 7
   },
   {
-      "category": 3,
+      "category": 5,
       "name": "Часы настенные",
       "image": "products_images/product-4-sm.jpg",
       "short_desc": "Строгий дизайн",
@@ -17,7 +17,7 @@
       "quantity": 3
   },
   {
-      "category": 4,
+      "category": 6,
       "name": "Кресло релакс",
       "image": "products_images/product-4.jpg",
       "short_desc": "Современный дизайн",
@@ -26,7 +26,7 @@
       "quantity": 2
   },
   {
-      "category": 4,
+      "category": 6,
       "name": "диван",
       "image": "products_images/product-3-sm.jpg",
       "short_desc": "удобный",
@@ -35,7 +35,7 @@
       "quantity": 1
   },
   {
-      "category": 1,
+      "category": 7,
       "name": "лампа домашняя",
       "image": "products_images/product-2-sm.jpg",
       "short_desc": "необходимая вещь",
@@ -44,7 +44,7 @@
       "quantity": 120
   },
   {
-      "category": 2,
+      "category": 8,
       "name": "Лампа подвесная",
       "image": "products_images/product-5-sm.jpg",
       "short_desc": "для кухни",
@@ -53,7 +53,7 @@
       "quantity": 12
   },
   {
-      "category": 2,
+      "category": 8,
       "name": "лампа шар",
       "image": "products_images/product-1_62lgMcI.jpg",
       "short_desc": "необходимая вещь",
