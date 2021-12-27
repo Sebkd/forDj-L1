@@ -32,4 +32,4 @@ class Command (BaseCommand):
             new_product = Product (**product)
             new_product.save ()
 
-        super_user = User.objects.create_superuser (username = 'admin', email = "none@none.com", password = '123')
+        super_user = User.objects.create_superuser (username='admin', email="none@none.com", password='123')
