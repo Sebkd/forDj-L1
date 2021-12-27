@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7">
-        <schema name="main" object-types="table" />
+        <schema name="main" object-types="table, view, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -42,12 +42,15 @@
     <connection id="37864d6a-3620-4ada-ae02-eb494a699aa7" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_productcategory" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_product" active-filter-id="73a01bc2-4060-4b10-8b84-c14b18025abf">
-      <filter id="73a01bc2-4060-4b10-8b84-c14b18025abf" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="id" operator="=" value="" active="true" />
-      </filter>
-    </filter-actions>
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user_user_permissions" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user_groups" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.authapp_shopuser" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_group" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_product" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.django_admin_log" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_permission" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -100,7 +103,7 @@
           <deprecated-pwd value="" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
@@ -128,10 +131,10 @@
           <restore-workspace-deep value="true" />
           <environment-type value="default" />
           <connectivity-timeout value="5" />
-          <idle-time-to-disconnect value="30" />
-          <idle-time-to-disconnect-pool value="5" />
-          <credential-expiry-time value="10" />
-          <max-connection-pool-size value="7" />
+          <idle-time-to-disconnect value="1" />
+          <idle-time-to-disconnect-pool value="1" />
+          <credential-expiry-time value="1" />
+          <max-connection-pool-size value="10" />
           <alternative-statement-delimiter value="" />
         </details>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
@@ -290,8 +293,10 @@
           <content-type name="DTD" enabled="true" />
           <content-type name="HTML" enabled="true" />
           <content-type name="XHTML" enabled="true" />
+          <content-type name="CSS" enabled="true" />
           <content-type name="SQL" enabled="true" />
           <content-type name="PL/SQL" enabled="true" />
+          <content-type name="JavaScript" enabled="true" />
           <content-type name="JSON" enabled="true" />
           <content-type name="JSON5" enabled="true" />
           <content-type name="YAML" enabled="true" />

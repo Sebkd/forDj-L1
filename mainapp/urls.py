@@ -1,8 +1,6 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from .views import products
-from myShop.views import index
 
 app_name = 'mainapp'
 

@@ -1,0 +1,64 @@
+[{
+      "category": 5,
+      "name": "кресло офисное",
+      "image": "products_images/product-2.jpg",
+      "short_desc": "Строгий дизайн",
+      "description": "имофялмиыодфядпотфдтпидтдлпидлФТЛДЖдфяыж",
+      "price": "3500.00",
+      "quantity": 7
+  },
+  {
+      "category": 5,
+      "name": "Часы настенные",
+      "image": "products_images/product-4-sm.jpg",
+      "short_desc": "Строгий дизайн",
+      "description": "отяодаитфтлдпилфтлжкапижфэлжпитжлажфэжпжак",
+      "price": "7600.00",
+      "quantity": 3
+  },
+  {
+      "category": 6,
+      "name": "Кресло релакс",
+      "image": "products_images/product-4.jpg",
+      "short_desc": "Современный дизайн",
+      "description": "ОАОФОДОДЫПИМДФТЛДИМДТАИПДМФЛДАТЛПТЛЖПЖЛЫАПОЖФЯПОЬМФЯ",
+      "price": "17000.00",
+      "quantity": 2
+  },
+  {
+      "category": 6,
+      "name": "диван",
+      "image": "products_images/product-3-sm.jpg",
+      "short_desc": "удобный",
+      "description": "имфяоаиодфтдтдтидттаатжлЖПьЖЬПВжмь\\ЬХ\\ЬЭЬАПЭДЬЫЯЭДПЬДЖЭЬЫАПЭЬЭФДЫПМ",
+      "price": "25000.00",
+      "quantity": 1
+  },
+  {
+      "category": 7,
+      "name": "лампа домашняя",
+      "image": "products_images/product-2-sm.jpg",
+      "short_desc": "необходимая вещь",
+      "description": "яолдатиодтафыядоитдфтилатдятитдлфталитлфвтитфвлилжфявжаритжфльижьа",
+      "price": "1299.00",
+      "quantity": 120
+  },
+  {
+      "category": 8,
+      "name": "Лампа подвесная",
+      "image": "products_images/product-5-sm.jpg",
+      "short_desc": "для кухни",
+      "description": "омрфрпщщфпдофтдитдлфятпидлофлдпьжльижлфьижлавьиж",
+      "price": "5600.00",
+      "quantity": 12
+  },
+  {
+      "category": 8,
+      "name": "лампа шар",
+      "image": "products_images/product-1_62lgMcI.jpg",
+      "short_desc": "необходимая вещь",
+      "description": "пырпыроыоаопст",
+      "price": "2300.00",
+      "quantity": 16
+  }
+]
