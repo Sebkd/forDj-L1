@@ -22,7 +22,7 @@
 <!--            <li><a href="#">офис</a></li>-->
 <!--            <li><a href="#">модерн</a></li>-->
 <!--            <li><a href="#">классика</a></li>-->
-            {% for product in same_products %}
+            {% for product in cat_products %}
                 <li>
                     <a href="#" class="{% if request.resolver_match.url_name == link.href %}
                                             active

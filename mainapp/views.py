@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import Product, ProductCategory
 
@@ -6,7 +6,7 @@ from mainapp.models import Product, ProductCategory
 def products(request, pk=None):
     title = 'каталог'
     links_menu = ['домой', 'продукты', 'контакты',]
-    same_products = ProductCategory.objects.all()
+    cat_products = ProductCategory.objects.all()
     #     [
     # {'href': 'products_all', 'name': 'все'},
     # {'href': 'products_home', 'name': 'дом'},
@@ -15,11 +15,29 @@ def products(request, pk=None):
     # {'href': 'products_classic', 'name': 'классика'},
     # ]
    # product = Product.objects.get(id=pk)
+    if pk is not None:
+        if pk == 0:
+            products = Product.objects.all().order_by('price')
+            category = {'name': 'все'}
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk).order_by('price')
+
+        context_page = {
+            'title': title,
+            'links_menu': links_menu,
+            'cat_products': cat_products,
+            'products': products,
+        }
+        return render(request, 'mainapp/products.html', context=context_page)
+
+    same_products = Product.objects.all()
     context_page = {
         'title': title,
         'links_menu': links_menu,
-        'same_products': same_products,
+        'cat_products': cat_products,
+        'products': same_products,
     }
-    return render(request, 'mainapp/products.html', context=context_page)
+    return render (request, 'mainapp/products.html', context = context_page)
 
 # Create your views here.
