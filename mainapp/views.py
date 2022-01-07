@@ -27,16 +27,17 @@ def products(request, pk=None):
             'title': title,
             'links_menu': links_menu,
             'cat_products': cat_products,
+            'category': category,
             'products': products,
         }
         return render(request, 'mainapp/products.html', context=context_page)
 
-    same_products = Product.objects.all()
+    products = Product.objects.all()
     context_page = {
         'title': title,
         'links_menu': links_menu,
         'cat_products': cat_products,
-        'products': same_products,
+        'products': products,
     }
     return render (request, 'mainapp/products.html', context = context_page)
 
