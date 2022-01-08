@@ -43,41 +43,37 @@
     <div class="details-products">
         <div class="details-slider">
             <div class="slider-product">
-                <img src="{% static '/mainapp/img/slider1.jpg' %}">
+{#                <img src="{% static '/mainapp/img/slider1.jpg' %}">#}
+                <img src="/media/{{ hot_product.image }}">
             </div>
             <div class="slider-control">
                 <div class="block">
-                    <a href="#"><img src="{% static '/mainapp/img/controll.jpg' %}" alt="">
-                        <div class="text"></div>
+                    <a href="#"><img src="/media/{{ hot_product.image }}" alt="" class="slider-control-min">
+                        <div class="text">1</div>
                     </a>
                 </div>
                 <div class="block">
-                    <a href="#"><img src="{% static '/mainapp/img/controll1.jpg' %}" alt="">
-                        <div class="text"></div>
+                    <a href="#"><img src="/media/{{ hot_product.image }}" alt="" class="slider-control-min">
+                        <div class="text">2</div>
                     </a>
                 </div>
                 <div class="block">
-                    <a href="#"><img src="{% static '/mainapp/img/controll2.jpg' %}" alt="">
-                        <div class="text"></div>
+                    <a href="#"><img src="/media/{{ hot_product.image }}" alt="" class="slider-control-min">
+                        <div class="text">3</div>
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="description">
-            <h3 class="big-bold">Отличный стул</h3>
+            <h3 class="big-bold">{{ hot_product.name }}</h3>
             <h3 class="red">горячее предложение {% now "d.m.Y"%}</h3>
-            <p class="price"> 2585.9 <span>руб</span></p>
-            <a href="#" class="red-button">
+            <p class="price">{{ hot_product.price }}<span>руб</span></p>
+            <a href="{% url 'basket:add' hot_product.pk %}" class="red-button">
                 заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
             <div class="description-text">
-                <p>Расположитесь комфортно.</p>
-                <p>Отличное качество материалов
-                    позволит вам это.</p>
-                <p>Различные цвета</p>
-                <p>высочайший уровень
-                    эргономики и прочность.</p>
+                <p>{{ hot_product.short_desc }}</p>
             </div>
         </div>
     </div>
@@ -113,7 +109,7 @@
             <a class="explore" href="#">показать все <img src="img/arrow.png" alt=""></a>
         </div>
         <div class="related-products clearfix">
-            {% for product in products %}
+            {% for product in same_products %}
                 <div class="block">
                                 <a href="{% url 'basket:add' pk=product.pk %}"><img src="/media/{{ product.image }}" alt="">
                                     <div class="text">

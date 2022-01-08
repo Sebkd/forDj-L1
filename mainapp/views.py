@@ -1,16 +1,27 @@
+import random
+
 from django.shortcuts import render, get_object_or_404
 
 from basketapp.models import Basket
 from mainapp.models import Product, ProductCategory
+from myShop.views import get_basket
 
+def get_hot_product():
+    products = Product.objects.all()
+    return random.sample(list(products), 1)[0]
+
+def get_same_products(hot_product):
+    same_products = Product.objects.filter(category = hot_product.category).exclude(pk=hot_product.pk)[:3]
+    return same_products
 
 def products(request, pk=None):
     title = 'каталог'
     links_menu = ['домой', 'продукты', 'контакты',]
     cat_products = ProductCategory.objects.all()
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter (user = request.user)
+    basket = get_basket(user = request.user)
+    # basket = []
+    # if request.user.is_authenticated:
+    #     basket = Basket.objects.filter (user = request.user)
     #     [
     # {'href': 'products_all', 'name': 'все'},
     # {'href': 'products_home', 'name': 'дом'},
@@ -37,12 +48,15 @@ def products(request, pk=None):
         }
         return render(request, 'mainapp/products.html', context=context_page)
 
-    products = Product.objects.all()
+    # products = Product.objects.all()
+    hot_product = get_hot_product()
+    same_products = get_same_products(hot_product)
     context_page = {
         'title': title,
         'links_menu': links_menu,
         'cat_products': cat_products,
-        'products': products,
+        'hot_product': hot_product,
+        'same_products': same_products,
         'basket': basket,
     }
     return render (request, 'mainapp/products.html', context = context_page)
