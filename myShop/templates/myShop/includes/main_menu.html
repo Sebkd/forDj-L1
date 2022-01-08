@@ -3,8 +3,7 @@
     <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
 {% endif %}">{{links_menu.0}}</a></li>
-    <li><a href="{% url 'products:index' %}"
-           class="{% if request.resolver_match.url_name == link.href %}
+    <li><a href="{% url 'products:index' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
 {% endif %}">{{links_menu.1}}</a></li>
     <li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == link.href %}
@@ -23,6 +22,13 @@ active
             {% else %}
                 <a href="{% url 'auth:login' %}">войти</a>
         {% endif %}
+    </li>
+    <li>
+        <a href="{% url 'basket:index' %}" class="basket">
+            <span>
+            {% if basket %} {{ basket|length }} {% endif %}
+            </span>
+        </a>
     </li>
 </ul>
 <a href="#" class="search"></a>
