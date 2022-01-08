@@ -22,12 +22,18 @@
 <!--            <li><a href="#">офис</a></li>-->
 <!--            <li><a href="#">модерн</a></li>-->
 <!--            <li><a href="#">классика</a></li>-->
-            {% for product in cat_products %}
+            <li><a href="{% url 'products:category' 0 %}"
+                   class="{% if request.resolver_match.kwargs.pk == 0 %} active
+            {% endif %} ">
+                все
+            </a>
+            </li>
+            {% for cat_product in cat_products %}
                 <li>
-                    <a href="#" class="{% if request.resolver_match.url_name == link.href %}
-                                            active
+                    <a href="{% url 'products:category' cat_product.pk %}"
+                       class="{% if request.resolver_match.kwargs.pk|add:'0' == cat_product.pk %} active
                                         {% endif %}">
-                                {{product.name}}
+                                {{ cat_product.name }}
                     </a>
                 </li>
             {% endfor %}
