@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mainapp.models import Product
+from mainapp.models import Product, ProductCategory
 
 
 def index(request):
