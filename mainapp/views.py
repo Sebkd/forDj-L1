@@ -19,6 +19,7 @@ def products(request, pk=None):
     links_menu = ['домой', 'продукты', 'контакты',]
     cat_products = ProductCategory.objects.all()
     basket = get_basket(user = request.user)
+    hot_product = get_hot_product ()
     # basket = []
     # if request.user.is_authenticated:
     #     basket = Basket.objects.filter (user = request.user)
@@ -44,12 +45,13 @@ def products(request, pk=None):
             'cat_products': cat_products,
             'category': category,
             'products': products,
+            'hot_product': hot_product,
             'basket': basket,
         }
         return render(request, 'mainapp/products.html', context=context_page)
 
     # products = Product.objects.all()
-    hot_product = get_hot_product()
+
     same_products = get_same_products(hot_product)
     context_page = {
         'title': title,
