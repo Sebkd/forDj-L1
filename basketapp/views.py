@@ -49,7 +49,7 @@ def basket_remove(request, pk):
 
 @login_required
 def basket_edit(request, pk, quantity):
-    if request.is_ajax():
+    if (request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'):
         quantity = int(quantity)
         new_basket_item = Basket.objects.get(pk=int(pk))
 
