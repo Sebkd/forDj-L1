@@ -15,6 +15,13 @@ active
                     {{ user.first_name|default:'Пользователь' }}
                 </a>
             </li>
+        {% if user.is_superuser %}
+            <li>
+                    <a href="{% url 'admin_staff:users' %}">
+                        Админка
+                    </a>
+            </li>
+        {% endif %}
     {% endif %}
     <li>
         {% if user.is_authenticated %}
