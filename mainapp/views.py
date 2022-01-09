@@ -20,6 +20,8 @@ def products(request, pk=None):
     cat_products = ProductCategory.objects.all()
     basket = get_basket(user = request.user)
     hot_product = get_hot_product ()
+    same_products = get_same_products (hot_product)
+    products = Product.objects.all ().order_by ('price')
     # basket = []
     # if request.user.is_authenticated:
     #     basket = Basket.objects.filter (user = request.user)
@@ -47,17 +49,19 @@ def products(request, pk=None):
             'products': products,
             'hot_product': hot_product,
             'basket': basket,
+            'same_products': same_products,
         }
         return render(request, 'mainapp/products.html', context=context_page)
 
     # products = Product.objects.all()
 
-    same_products = get_same_products(hot_product)
+
     context_page = {
         'title': title,
         'links_menu': links_menu,
         'cat_products': cat_products,
         'hot_product': hot_product,
+        'products': products,
         'same_products': same_products,
         'basket': basket,
     }

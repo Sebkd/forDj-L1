@@ -3,11 +3,21 @@ from django.shortcuts import render, get_object_or_404
 
 from basketapp.models import Basket
 from mainapp.models import Product
+from myShop.views import get_basket
 
 
 def basket(request):
-    context = {}
-    return render(request, 'basketapp/basket.html', context)
+    basket = get_basket (user = request.user)
+    basket_items = basket.order_by('product__category')
+    title = 'Корзина'
+    links_menu = ['домой', 'продукты', 'контакты', ]
+    context_page = {
+        'title': title,
+        'links_menu': links_menu,
+        'basket_items': basket_items,
+        # 'basket': basket
+    }
+    return render(request, 'basketapp/basket.html', context = context_page)
 
 def basket_add(request, pk):
     product = get_object_or_404(Product, pk=pk)
@@ -23,8 +33,9 @@ def basket_add(request, pk):
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-def basket_remove(request):
-    context = {}
-    return render (request, 'basketapp/basket.html', context)
+def basket_remove(request, pk):
+    basket_record = get_object_or_404(Basket, pk=pk)
+    basket_record.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 # Create your views here.
