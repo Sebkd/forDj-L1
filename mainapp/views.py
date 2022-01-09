@@ -67,4 +67,19 @@ def products(request, pk=None):
     }
     return render (request, 'mainapp/products.html', context = context_page)
 
+def product_detail (request, pk):
+    title = 'Выбранный продукт'
+    links_menu = ['домой', 'продукты', 'контакты', ]
+    cat_products = ProductCategory.objects.all ()
+    basket = get_basket (user = request.user)
+    product = get_object_or_404(Product, pk=pk)
+    context_page = {
+        'title': title,
+        'links_menu': links_menu,
+        'cat_products': cat_products,
+        'product': product,
+        'basket': basket,
+    }
+    return render (request, 'mainapp/product_detail.html', context = context_page)
+
 # Create your views here.
