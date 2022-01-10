@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
+from adminapp.forms import ShopUserAdminEditForm
 from authapp.forms import ShopUserRegisterForm
 
 from authapp.models import ShopUser
@@ -14,11 +15,11 @@ def users(request):
     title = 'админка/пользователи'
     users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser',
     '-is_staff', 'username')
-    content = {
+    context = {
     'title': title,
     'objects': users_list
     }
-    return render(request, 'adminapp/users.html', content)
+    return render(request, 'adminapp/users.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def user_create(request):
@@ -32,19 +33,48 @@ def user_create(request):
     else:
         user_form = ShopUserRegisterForm()
 
-    content = {
+    context = {
     'title': title,
-    'user_form': user_form
+    'user_to': user_form
     }
-    return render(request, 'adminapp/user_create.html', content)
+    return render(request, 'adminapp/user_create.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def user_update(request, pk):
-    pass
+    title = 'пользователи/редактирование'
+
+    edit_user = get_object_or_404(ShopUser, pk=pk)
+
+    if request.method == 'POST':
+        edit_form = ShopUserAdminEditForm(request.POST, request.FILES, instance=edit_user)
+
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('admin_staff:user_create', args = [edit_user.pk]))
+    else:
+        edit_form = ShopUserAdminEditForm(instance=edit_user)
+
+    context = {
+    'title': title,
+    'user_or_edit_form': edit_form,
+    }
+    return render(request, 'adminapp/user_create.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def user_delete(request, pk):
-    pass
+    title = 'пользователи/удаление'
+
+    _user = get_object_or_404(ShopUser, pk=pk)
+
+    if request.method == 'POST':
+        _user.is_active = False
+        _user.save()
+        return HttpResponseRedirect(reverse('admin_staff:users'))
+    context = {
+    'title': title,
+    'user_to_delete': _user,
+    }
+    return render(request, 'adminapp/user_delete.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def categories(request):
