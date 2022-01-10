@@ -5,6 +5,7 @@
 	padding-right: 211px;
 	position: relative;
 }
+
 .details-products {
 	padding-left: 98px;
 	padding-right: 98px;
@@ -252,4 +253,8 @@
 	text-align: left;
 	margin-left: 15px;
 
+}
+
+.slider-control-min {
+	width: -webkit-fill-available;
 }
