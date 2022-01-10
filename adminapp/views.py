@@ -96,7 +96,19 @@ def category_update(request, pk):
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_delete(request, pk):
-    pass
+    title = 'категории/удаление'
+
+    _category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        _category.is_active = False
+        _category.save()
+        return HttpResponseRedirect(reverse('admin_staff:categories'))
+    context = {
+    'title': title,
+    'category_to_delete': _category,
+    }
+    return render(request, 'adminapp/category_delete.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def products(request, pk):
