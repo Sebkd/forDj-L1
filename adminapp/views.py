@@ -50,7 +50,7 @@ def user_update(request, pk):
 
         if edit_form.is_valid():
             edit_form.save()
-            return HttpResponseRedirect(reverse('admin_staff:user_create', args = [edit_user.pk]))
+            return HttpResponseRedirect(reverse('admin_staff:user_update', args = [edit_user.pk]))
     else:
         edit_form = ShopUserAdminEditForm(instance=edit_user)
 
@@ -166,9 +166,9 @@ def product_update(request, pk):
         if edit_form.is_valid():
             edit_form.save()
             return HttpResponseRedirect(reverse('admin_staff:products',
-                                                args = [edit_product.pk]))
+                                                args = [edit_product.category.pk]))
     else:
-        edit_form = ProductEditForm(initial = edit_product)
+        edit_form = ProductEditForm(instance = edit_product)
 
     context = {
     'title': title,
@@ -186,7 +186,7 @@ def product_delete(request, pk):
     if request.method == 'POST':
         delete_product.is_active = False
         delete_product.save()
-        return HttpResponseRedirect(reverse('admin_staff:products', args = [delete_product.pk]))
+        return HttpResponseRedirect(reverse('admin_staff:products', args = [delete_product.category.pk]))
     context = {
     'title': title,
     'product_to_delete': delete_product,
