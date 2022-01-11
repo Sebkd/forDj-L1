@@ -1,0 +1,36 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+        <style>
+
+        .wrapper_img {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        margin: auto;
+        border: 5px solid #515151;
+      }
+      .user_avatar img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+        </style>
+       <div class="wrapper_img user_avatar">
+        <img src="/media/{{ user.avatar|default:'avatar.png' }}">
+       </div>
+    <form class="form-horizontal" action="{% url 'auth:edit' %}"
+          method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+        <br>
+        <input class="form-control" type="submit" value="сохранить">
+    </form>
+    <button class="btn btn-round form-control last">
+        <a href="{% url 'index' %}" class="">
+            на главную
+        </a>
+    </button>
+{% endblock %}

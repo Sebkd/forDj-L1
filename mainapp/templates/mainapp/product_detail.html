@@ -1,0 +1,57 @@
+{% extends 'myShop/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static '/mainapp/style.css' %}">
+{% endblock %}
+
+{% block inn %}
+    <div class="hero-white">
+        <div class="header clearfix">
+            {% include 'myShop/includes/main_menu.html' %}
+    {#        <a href="#" class="basket"></a>#}
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="details-products">
+            <div class="details-slider">
+                <div class="slider-product">
+                    <a href="{% url 'basket:add' pk=product.pk %}">
+    {#                <img src="{% static '/mainapp/img/slider1.jpg' %}">#}
+                    <img src="/media/{{ product.image }}">
+                    </a>
+                </div>
+                <div class="slider-control">
+                    <div class="block">
+                        <a href="#"><img src="/media/{{ product.image }}" alt="" class="slider-control-min">
+                            <div class="text">1</div>
+                        </a>
+                    </div>
+                    <div class="block">
+                        <a href="#"><img src="/media/{{ product.image }}" alt="" class="slider-control-min">
+                            <div class="text">2</div>
+                        </a>
+                    </div>
+                    <div class="block">
+                        <a href="#"><img src="/media/{{ product.image }}" alt="" class="slider-control-min">
+                            <div class="text">3</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description">
+                <h3 class="big-bold">{{ product.name }}</h3>
+                <h3 class="red">горячее предложение {% now "d.m.Y"%}</h3>
+                <p class="price">{{ product.price }}<span>руб</span></p>
+                <a href="{% url 'basket:add' pk=product.pk %}" class="red-button">
+                    заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+                <div class="description-text">
+                    <p>{{ product.short_desc }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
