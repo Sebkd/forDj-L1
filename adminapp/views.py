@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 
-from adminapp.forms import ShopUserAdminEditForm, ProductEditForm
+from adminapp.forms import ShopUserAdminEditForm, ProductEditForm, ProductCategoryEditForm
 from authapp.forms import ShopUserRegisterForm
 
 from authapp.models import ShopUser
@@ -88,12 +88,43 @@ def categories(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_create(request):
-    pass
+    title = 'категории/cоздание'
+
+    if request.method == 'POST':
+        category_form = ProductCategoryEditForm(request.POST, request.FILES)
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin_staff:categories'))
+    else:
+        category_form = ProductCategoryEditForm()
+
+    context = {
+    'title': title,
+    'category_form': category_form
+    }
+    return render(request, 'adminapp/category_create.html', context)
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_update(request, pk):
-    pass
+    title = 'категории/редактирование'
+
+    category_form = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        category_form = ProductCategoryEditForm(request.POST, request.FILES, instance=category_form)
+
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin_staff:categories'))
+    else:
+        category_form = ProductCategoryEditForm(instance=category_form)
+
+    context = {
+    'title': title,
+    'category_form': category_form,
+    }
+    return render(request, 'adminapp/category_create.html', context)
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_delete(request, pk):
