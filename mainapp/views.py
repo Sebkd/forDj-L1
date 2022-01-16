@@ -3,7 +3,7 @@ import random
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import Product, ProductCategory
-from myShop.views import get_basket
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def get_hot_product():
@@ -18,7 +18,7 @@ def products(request, pk=None, page=1):
     title = 'каталог'
     links_menu = ['домой', 'продукты', 'контакты',]
     cat_products = ProductCategory.objects.all()
-    basket = get_basket(user = request.user)
+    # basket = get_basket(user = request.user)
     hot_product = get_hot_product ()
     same_products = get_same_products (hot_product)
     products = Product.objects.all ().order_by ('price')
@@ -59,7 +59,7 @@ def products(request, pk=None, page=1):
             'category': category,
             'products': products_paginator,
             'hot_product': hot_product,
-            'basket': basket,
+            # 'basket': basket,
             'same_products': same_products,
         }
         return render(request, 'mainapp/products.html', context=context_page)
@@ -75,7 +75,7 @@ def products(request, pk=None, page=1):
         'hot_product': hot_product,
         'products': products,
         'same_products': same_products,
-        'basket': basket,
+        # 'basket': basket,
     }
     return render (request, 'mainapp/products.html', context = context_page)
 
@@ -83,14 +83,14 @@ def product_detail (request, pk):
     title = 'Выбранный продукт'
     links_menu = ['домой', 'продукты', 'контакты', ]
     cat_products = ProductCategory.objects.all ()
-    basket = get_basket (user = request.user)
+    # basket = get_basket (user = request.user)
     product = get_object_or_404(Product, pk=pk)
     context_page = {
         'title': title,
         'links_menu': links_menu,
         'cat_products': cat_products,
         'product': product,
-        'basket': basket,
+        # 'basket': basket,
     }
     return render (request, 'mainapp/product_detail.html', context = context_page)
 

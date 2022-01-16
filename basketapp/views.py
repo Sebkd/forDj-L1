@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def basket(request):
-    basket = get_basket (user = request.user)
-    basket_items = basket.order_by('product__category')
+    # basket = get_basket (user = request.user)
+    basket_items = Basket.objects.filter (user = request.user).order_by('product__category')
     title = 'Корзина'
     links_menu = ['домой', 'продукты', 'контакты', ]
     context_page = {
