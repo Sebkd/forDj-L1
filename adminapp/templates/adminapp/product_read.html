@@ -1,0 +1,14 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="card" style="width: 18rem;">
+  <img src="/media/{{ object.image }}" class="card-img-top" alt="{{ object.short_desc }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ object.name }}</h5>
+    <p class="card-text">{{ object.description }}</p>
+      <h5 class="card-title">{{ object.price }} руб.</h5>
+  </div>
+</div>
+{% endblock %}

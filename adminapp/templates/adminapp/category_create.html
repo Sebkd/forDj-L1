@@ -5,7 +5,6 @@
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-{#        {{ user_or_edit_form }}#}
       <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 {% endblock %}
