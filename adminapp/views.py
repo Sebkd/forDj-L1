@@ -3,13 +3,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.detail import DetailView
+from django.views.generic import DeleteView, ListView, CreateView, UpdateView
 
-from adminapp.forms import ShopUserAdminEditForm, ProductEditForm, ProductCategoryEditForm
-from authapp.forms import ShopUserRegisterForm
-
+from adminapp.forms import ShopUserAdminEditForm, ProductEditForm, ProductCategoryEditForm, ShopUserAdminRegisterForm
 from authapp.models import ShopUser
 from mainapp.models import Product, ProductCategory
 
@@ -18,6 +14,10 @@ class UsersListView (ListView):
     model = ShopUser
     template_name = 'adminapp/users.html'
     context_object_name = 'objects'
+
+    def get_queryset(self):
+        return ShopUser.objects.all().order_by('-is_active', '-is_superuser',
+                                                                  '-is_staff', 'username')
 
     @method_decorator (user_passes_test (lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
@@ -45,7 +45,7 @@ class UsersCreateView (CreateView):
     template_name = 'adminapp/user_create.html'
     success_url = reverse_lazy ('admin_staff:users')
     # fields = '__all__'
-    form_class = ShopUserAdminEditForm
+    form_class = ShopUserAdminRegisterForm
 
     @method_decorator (user_passes_test (lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
@@ -108,7 +108,7 @@ class UserDeleteView (DeleteView):
     template_name = 'adminapp/user_delete.html'
     success_url = reverse_lazy ('admin_staff:users')
     # form_class = ShopUserAdminEditForm
-    fields = '__all__'
+    # fields = '__all__'
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object ()
@@ -231,16 +231,17 @@ class ProductCategoryDeleteView (DeleteView):
     # context_object_name = 'object'
     success_url = reverse_lazy ('admin_staff:categories')
 
-
     @method_decorator (user_passes_test (lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
         return super ().dispatch (*args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object ()
-        object.is_active = False
+        self.object.is_active = False
         self.object.save ()
-        return HttpResponseRedirect (self.get_success_url ())
+        return HttpResponseRedirect (self.get_success_url)
+
+
 
 
 # @user_passes_test(lambda u: u.is_superuser)
@@ -259,17 +260,31 @@ class ProductCategoryDeleteView (DeleteView):
 #     }
 #     return render(request, 'adminapp/category_delete.html', context)
 
-@user_passes_test (lambda u: u.is_superuser)
-def products(request, pk):
-    title = 'админка/продукт'
-    category = get_object_or_404 (ProductCategory, pk = pk)
-    products_list = Product.objects.filter (category__pk = pk).order_by ('name')
-    context = {
-        'title': title,
-        'category': category,
-        'objects': products_list,
-    }
-    return render (request, 'adminapp/products.html', context)
+class ProductListView(ListView):
+    model = ProductEditForm
+    template_name = 'adminapp/products.html'
+    context_object_name = 'objects'
+
+    @method_decorator (user_passes_test (lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        return super ().dispatch (*args, **kwargs)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super (ProductListView, self).get_context_data (**kwargs)
+        context.update ({'title': "админка/продукты"})
+        return context
+
+# @user_passes_test (lambda u: u.is_superuser)
+# def products(request, pk):
+#     title = 'админка/продукт'
+#     category = get_object_or_404 (ProductCategory, pk = pk)
+#     products_list = Product.objects.filter (category__pk = pk).order_by ('name')
+#     context = {
+#         'title': title,
+#         'category': category,
+#         'objects': products_list,
+#     }
+#     return render (request, 'adminapp/products.html', context)
 
 
 @user_passes_test (lambda u: u.is_superuser)

@@ -1,4 +1,4 @@
-from authapp.forms import ShopUserEditForm
+from authapp.forms import ShopUserEditForm, ShopUserRegisterForm
 from authapp.models import ShopUser
 from django import forms
 
@@ -10,6 +10,10 @@ class ShopUserAdminEditForm(ShopUserEditForm):
         model = ShopUser
         fields = '__all__'
 
+class ShopUserAdminRegisterForm(ShopUserRegisterForm):
+    class Meta:
+        model = ShopUser
+        fields = '__all__'
 
 class ProductCategoryEditForm(forms.ModelForm):
     class Meta:
