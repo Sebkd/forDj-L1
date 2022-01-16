@@ -240,6 +240,7 @@ class ProductCategoryDeleteView (DeleteView):
         self.object = self.get_object ()
         self.object.is_active = False
         self.object.save ()
+        # return super(ProductCategoryDeleteView, self).delete(*args, **kwargs)
         return HttpResponseRedirect (self.get_success_url)
 
 
