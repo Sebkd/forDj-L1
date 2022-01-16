@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import DeleteView, ListView, CreateView, UpdateView
+from django.views.generic.detail import DetailView
 
 from adminapp.forms import ShopUserAdminEditForm, ProductEditForm, ProductCategoryEditForm, ShopUserAdminRegisterForm
 from authapp.models import ShopUser
@@ -260,31 +261,31 @@ class ProductCategoryDeleteView (DeleteView):
 #     }
 #     return render(request, 'adminapp/category_delete.html', context)
 
-class ProductListView(ListView):
-    model = ProductEditForm
-    template_name = 'adminapp/products.html'
-    context_object_name = 'objects'
+# class ProductListView(ListView):
+#     model = ProductEditForm
+#     template_name = 'adminapp/products.html'
+#     context_object_name = 'objects'
+#
+#     @method_decorator (user_passes_test (lambda u: u.is_superuser))
+#     def dispatch(self, *args, **kwargs):
+#         return super ().dispatch (*args, **kwargs)
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super (ProductListView, self).get_context_data (**kwargs)
+#         context.update ({'title': "админка/продукты"})
+#         return context
 
-    @method_decorator (user_passes_test (lambda u: u.is_superuser))
-    def dispatch(self, *args, **kwargs):
-        return super ().dispatch (*args, **kwargs)
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super (ProductListView, self).get_context_data (**kwargs)
-        context.update ({'title': "админка/продукты"})
-        return context
-
-# @user_passes_test (lambda u: u.is_superuser)
-# def products(request, pk):
-#     title = 'админка/продукт'
-#     category = get_object_or_404 (ProductCategory, pk = pk)
-#     products_list = Product.objects.filter (category__pk = pk).order_by ('name')
-#     context = {
-#         'title': title,
-#         'category': category,
-#         'objects': products_list,
-#     }
-#     return render (request, 'adminapp/products.html', context)
+@user_passes_test (lambda u: u.is_superuser)
+def products(request, pk):
+    title = 'админка/продукт'
+    category = get_object_or_404 (ProductCategory, pk = pk)
+    products_list = Product.objects.filter (category__pk = pk).order_by ('name')
+    context = {
+        'title': title,
+        'category': category,
+        'objects': products_list,
+    }
+    return render (request, 'adminapp/products.html', context)
 
 
 @user_passes_test (lambda u: u.is_superuser)
@@ -307,18 +308,25 @@ def product_create(request, pk):
     }
     return render (request, 'adminapp/product_update.html', context)
 
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'adminapp/product_read.html'
 
-@user_passes_test (lambda u: u.is_superuser)
-def product_read(request, pk):
-    title = 'продукт/подробнее'
+    @method_decorator (user_passes_test (lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        return super ().dispatch (*args, **kwargs)
 
-    product = get_object_or_404 (Product, pk = pk)
-
-    context = {
-        'title': title,
-        'object': product,
-    }
-    return render (request, 'adminapp/product_read.html', context)
+# @user_passes_test (lambda u: u.is_superuser)
+# def product_read(request, pk):
+#     title = 'продукт/подробнее'
+#
+#     product = get_object_or_404 (Product, pk = pk)
+#
+#     context = {
+#         'title': title,
+#         'object': product,
+#     }
+#     return render (request, 'adminapp/product_read.html', context)
 
 
 @user_passes_test (lambda u: u.is_superuser)
