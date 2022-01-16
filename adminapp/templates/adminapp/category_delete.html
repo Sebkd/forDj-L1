@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="user_delete">
-        Уверены, что хотите удалить {{ category_to_delete.name }}
+        Уверены, что хотите удалить {{ object.name }}
 {#        {% if user_to_delete.first_name %}#}
 {#            ({{ user_to_delete.first_name|title }})</b>#}
 {#            {% if user_to_delete.last_name %}#}
@@ -10,7 +10,7 @@
 {#            {% endif %})#}
 {#        {% endif %}#}
         ?
-    <form action="{% url 'admin_staff:category_delete' category_to_delete.pk %}"
+    <form action="{% url 'admin_staff:category_delete' object.pk %}"
         method="post">
         {% csrf_token %}
         <input class="btn btn-danger" type="submit" value="удалить">

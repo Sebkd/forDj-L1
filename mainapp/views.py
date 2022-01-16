@@ -2,9 +2,9 @@ import random
 
 from django.shortcuts import render, get_object_or_404
 
-from basketapp.models import Basket
 from mainapp.models import Product, ProductCategory
 from myShop.views import get_basket
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def get_hot_product():
     products = Product.objects.all()
@@ -14,7 +14,7 @@ def get_same_products(hot_product):
     same_products = Product.objects.filter(category = hot_product.category).exclude(pk=hot_product.pk)[:3]
     return same_products
 
-def products(request, pk=None):
+def products(request, pk=None, page=1):
     title = 'каталог'
     links_menu = ['домой', 'продукты', 'контакты',]
     cat_products = ProductCategory.objects.all()
@@ -36,17 +36,28 @@ def products(request, pk=None):
     if pk is not None:
         if pk == 0:
             products = Product.objects.all().order_by('price')
-            category = {'name': 'все'}
+            category = {
+                'pk': 0,
+                'name': 'все'}
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).order_by('price')
+
+        paginator = Paginator (products, 1)
+
+        try:
+            products_paginator = paginator.page (page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page (1)
+        except EmptyPage:
+            products_paginator = paginator.page (paginator.num_pages)
 
         context_page = {
             'title': title,
             'links_menu': links_menu,
             'cat_products': cat_products,
             'category': category,
-            'products': products,
+            'products': products_paginator,
             'hot_product': hot_product,
             'basket': basket,
             'same_products': same_products,
@@ -54,6 +65,7 @@ def products(request, pk=None):
         return render(request, 'mainapp/products.html', context=context_page)
 
     # products = Product.objects.all()
+
 
 
     context_page = {
