@@ -811,3 +811,7 @@ td:first-child {
 	text-align: center;
 	margin-bottom: 140px;
 }
+
+.dropdown-menu {
+	display: contents;
+}
