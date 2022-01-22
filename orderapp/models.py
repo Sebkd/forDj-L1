@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from mainapp.models import Product
+
 
 class Order(models.Model):
     FORMING = 'FM'
@@ -47,7 +49,7 @@ class Order(models.Model):
         items = self.orderitems.select_related()
         return sum(list(map(lambda x: x.quantity * x.product.price, items)))
 
-    def delete(self, **kwargs):
+    def delete(self, *args, **kwargs):
         for item in self.orderitems.select_related():
             item.product.quantity += item.quantity
             item.product.save()
@@ -59,4 +61,18 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='orderitems', on_delete=models.CASCADE)
 
+    product = models.ForeignKey(Product, verbose_name='продукт', on_delete=models.CASCADE)
+
+    quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
+
+    def get_product_cost(self):
+        return self.product.price * self.quantity
+
+    class Meta:
+        verbose_name = 'Товар(-ы)'
+        verbose_name_plural = 'Товары'
+
+    def __str__(self):
+        return f'Товар: {self.id} из заказа {self.order.pk}'
+    
 # Create your models here.

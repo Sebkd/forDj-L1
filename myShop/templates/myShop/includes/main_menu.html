@@ -1,5 +1,5 @@
 <a href="{% url 'index' %}" class="logo"></a>
-<ul class="menu" class="dropdown">
+<ul class="menu">
     <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
 {% endif %}">{{ links_menu.0 }}</a></li>
@@ -28,6 +28,10 @@ active
                         <a href="{% url 'auth:edit' %}">
                             Профиль
                         </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="{% url 'orderapp:order_list' %}">
+                            Заказы</a>
                     </li>
                     <li class="dropdown-item">
                         <a href="{% url 'auth:logout' %}">выйти</a>
