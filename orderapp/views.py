@@ -12,6 +12,10 @@ from orderapp.forms import OrderItemForm
 from orderapp.models import Order, OrderItem
 
 
+def is_ajax(self):
+    return self.META.get("HTTP_X_REQUESTED_WITH") == "XMLHttpRequest"
+
+
 class OrderList(ListView):
     model = Order
     links_menu = ['домой', 'продукты', 'контакты', ]
@@ -47,7 +51,8 @@ class OrderCreate(CreateView):
                     form.initial['product'] = basket_items[num].product
                     form.initial['quantity'] = basket_items[num].quantity
                     form.initial['price'] = basket_items[num].product.price
-                    # basket_items[num].delete()  # но это не оптимально, так как он каждую позицию удаляет, а не очередью
+                    # basket_items[num].delete()
+                    # но это не оптимально, так как он каждую позицию удаляет, а не очередью
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
@@ -137,6 +142,7 @@ def order_forming_complete(request, pk):
     order.save()
 
     return HttpResponseRedirect(reverse('orderapp:order_list'))
+
 
 # методы сигналов для удаления из склада и добавления в него
 @receiver(pre_save, sender=OrderItem)
