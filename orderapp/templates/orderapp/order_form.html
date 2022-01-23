@@ -57,6 +57,8 @@
                                                 {% else %}
                                                     {% if field.value %}
                                                         <span class="orderitems-{{ forloop.parentloop.counter0 }}-price">
+{#                                                        forloop - это счетчик for, parentloop - вышестоящий for #}
+{#                                                            counter0 - считает с 0 #}
                                                 {{ field.value }}
                                             </span> руб
                                                     {% endif %}

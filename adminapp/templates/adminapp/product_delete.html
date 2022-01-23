@@ -2,26 +2,26 @@
 {% load static %}
 
 {% block content %}
-        <div class="card" style="width: 18rem;">
-  <img src="/media/{{ product_to_delete.image }}" class="card-img-top" alt="{{ product_to_delete.short_desc }}">
-  <div class="card-body">
-    <h5 class="card-title">{{ product_to_delete.name }}</h5>
-    <p class="card-text">{{ product_to_delete.description }}</p>
-      <h5 class="card-title">{{ product_to_delete.price }} руб.</h5>
-  </div>
-</div>
+    <div class="card" style="width: 18rem;">
+        <img src="/media/{{ product_to_delete.image }}" class="card-img-top" alt="{{ product_to_delete.short_desc }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ product_to_delete.name }}</h5>
+            <p class="card-text">{{ product_to_delete.description }}</p>
+            <h5 class="card-title">{{ product_to_delete.price }} руб.</h5>
+        </div>
+    </div>
     <div class="user_delete">
         Уверены, что хотите удалить {{ product_to_delete.name }}
         ?
-    <form action="{% url 'admin_staff:product_delete' product_to_delete.pk %}"
-        method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger" type="submit" value="удалить">
-    </form>
-    <button class="btn btn-success">
-        <a href="{% url 'admin_staff:products' product_to_delete.category.pk %}">
-        Отмена
-        </a>
-    </button>
+        <form action="{% url 'admin_staff:product_delete' product_to_delete.pk %}"
+              method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="удалить">
+        </form>
+        <button class="btn btn-success">
+            <a href="{% url 'admin_staff:products' product_to_delete.category.pk %}">
+                Отмена
+            </a>
+        </button>
     </div>
 {% endblock %}

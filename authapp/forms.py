@@ -17,6 +17,7 @@ class ShopUserLoginForm(AuthenticationForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
+
 class ShopUserRegisterForm(UserCreationForm):
     class Meta:
         model = ShopUser
@@ -39,7 +40,7 @@ class ShopUserRegisterForm(UserCreationForm):
         if data < 18:
             raise forms.ValidationError('Молод для нас! Стань старше!')
         return data
-    
+
     def save(self):
         user = super(ShopUserRegisterForm, self).save()
         user.is_active = False
@@ -50,7 +51,8 @@ class ShopUserRegisterForm(UserCreationForm):
 
         return user
 
-class ShopUserEditForm (UserChangeForm):
+
+class ShopUserEditForm(UserChangeForm):
     class Meta:
         model = ShopUser
         fields = (
@@ -62,8 +64,8 @@ class ShopUserEditForm (UserChangeForm):
             'password')
 
     def __init__(self, *args, **kwargs):
-        super().__init__ (*args, **kwargs)
-        for field_name, field in self.fields.items ():
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
             if field_name == 'password':
@@ -72,8 +74,9 @@ class ShopUserEditForm (UserChangeForm):
     def clean_age(self):
         data = self.cleaned_data['age']
         if data < 18:
-            raise forms.ValidationError ("Молод для нас! Стань старше!")
+            raise forms.ValidationError("Молод для нас! Стань старше!")
         return data
+
 
 class ShopUserProfileEditForm(forms.ModelForm):
     class Meta:

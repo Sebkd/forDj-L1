@@ -47,6 +47,7 @@ class OrderCreate(CreateView):
                     form.initial['product'] = basket_items[num].product
                     form.initial['quantity'] = basket_items[num].quantity
                     form.initial['price'] = basket_items[num].product.price
+                    # basket_items[num].delete()  # но это не оптимально, так как он каждую позицию удаляет, а не очередью
                 basket_items.delete()
             else:
                 formset = OrderFormSet()
@@ -137,7 +138,7 @@ def order_forming_complete(request, pk):
 
     return HttpResponseRedirect(reverse('orderapp:order_list'))
 
-
+# методы сигналов для удаления из склада и добавления в него
 @receiver(pre_save, sender=OrderItem)
 @receiver(pre_save, sender=Basket)
 def product_quantity_update_save(sender, update_fields, instance, **kwargs):

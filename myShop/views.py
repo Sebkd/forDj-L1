@@ -4,9 +4,9 @@ from basketapp.models import Basket
 from mainapp.models import Product, ProductCategory
 
 
-def get_basket (user):
+def get_basket(user):
     if user.is_authenticated:
-        return Basket.objects.filter (user = user)
+        return Basket.objects.filter(user=user)
     else:
         return []
 
@@ -18,7 +18,7 @@ def index(request):
     # basket = get_basket(user = request.user)
     title = 'myShop'
     products = Product.objects.all()[:4]
-    links_menu = ['домой', 'продукты', 'контакты',]
+    links_menu = ['домой', 'продукты', 'контакты', ]
     context_page = {
         'title': title,
         'links_menu': links_menu,
@@ -34,7 +34,7 @@ def contacts(request):
     #     basket = Basket.objects.filter (user = request.user)
     # basket = get_basket (user = request.user)
     title = 'контакты'
-    links_menu = ['домой', 'продукты', 'контакты',]
+    links_menu = ['домой', 'продукты', 'контакты', ]
     context_page = {
         'title': title,
         'links_menu': links_menu,
