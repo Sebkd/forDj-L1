@@ -58,7 +58,21 @@ class Order(models.Model):
         self.save()
 
 
+# не нужно использовать при использовании сигналов @receiver в orderapp/view
+# class OrderItemQuerySet(models.QuerySet):
+#
+#     def delete(self, *args, **kwargs):
+#         for obj in self:
+#             obj.product.quantity += obj.quantity
+#             obj.product.save()
+#         super(self.__class__, self).delete(*args, **kwargs)
+
+
 class OrderItem(models.Model):
+    # objects = OrderItemQuerySet.as_manager() # обработка моделей ведется через отдельный класс, но так как там
+    # только один метод переопределен delete, то и касается он только одного метода
+    # не нужно использовать при использовании сигналов @receiver в orderapp/view
+
     order = models.ForeignKey(Order, related_name='orderitems', on_delete=models.CASCADE)
 
     product = models.ForeignKey(Product, verbose_name='продукт', on_delete=models.CASCADE)
@@ -68,11 +82,15 @@ class OrderItem(models.Model):
     def get_product_cost(self):
         return self.product.price * self.quantity
 
+    @staticmethod
+    def get_item(pk):
+        return OrderItem.objects.filter(pk=pk).first()
+
     class Meta:
         verbose_name = 'Товар(-ы)'
         verbose_name_plural = 'Товары'
 
     def __str__(self):
         return f'Товар: {self.id} из заказа {self.order.pk}'
-    
+
 # Create your models here.
