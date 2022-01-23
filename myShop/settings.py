@@ -26,7 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
@@ -63,7 +62,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-
 
 ]
 
@@ -157,9 +155,9 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 
 EMAIL_PORT = '2525'
 
-#вариант python -m smtpd -n -c DebuggingServer localhost:25
+# вариант python -m smtpd -n -c DebuggingServer localhost:25
 # EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
-#вариант логирования сообщений почты в виде файлов вместо отправки
+# вариант логирования сообщений почты в виде файлов вместо отправки
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/email-messages/'
 
@@ -178,13 +176,13 @@ SOCIAL_AUTH_VK_OAUTH2_IGNORE_DEFAULT_SCOPE = True
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 
 SOCIAL_AUTH_PIPELINE = (
-'social_core.pipeline.social_auth.social_details',
-'social_core.pipeline.social_auth.social_uid',
-'social_core.pipeline.social_auth.auth_allowed',
-'social_core.pipeline.social_auth.social_user',
-'social_core.pipeline.user.create_user',
-'authapp.pipeline.save_user_profile',
-'social_core.pipeline.social_auth.associate_user',
-'social_core.pipeline.social_auth.load_extra_data',
-'social_core.pipeline.user.user_details',
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.create_user',
+    'authapp.pipeline.save_user_profile',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
 )
