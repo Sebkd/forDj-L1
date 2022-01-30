@@ -36,20 +36,29 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" object-ref="schemas/main/tables/mainapp_product" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="37864d6a-3620-4ada-ae02-eb494a699aa7" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user_user_permissions" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.social_auth_usersocialauth" active-filter-id="c7c4a48f-c178-4698-a4e2-c5e52766870b">
+      <filter id="c7c4a48f-c178-4698-a4e2-c5e52766870b" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.django_admin_log" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_productcategory" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user_user_permissions" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_user_groups" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.authapp_shopuser" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_group" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.authapp_shopuserprofile" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.mainapp_product" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.django_admin_log" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.orderapp_order" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.basketapp_basket" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="37864d6a-3620-4ada-ae02-eb494a699aa7" dataset="main.auth_permission" active-filter-id="EMPTY_FILTER" />
   </component>

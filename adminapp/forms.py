@@ -10,10 +10,12 @@ class ShopUserAdminEditForm(ShopUserEditForm):
         model = ShopUser
         fields = '__all__'
 
+
 class ShopUserAdminRegisterForm(ShopUserRegisterForm):
     class Meta:
         model = ShopUser
         fields = '__all__'
+
 
 class ProductCategoryEditForm(forms.ModelForm):
     class Meta:

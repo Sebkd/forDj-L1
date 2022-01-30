@@ -2,43 +2,58 @@
 <ul class="menu">
     <li><a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
-{% endif %}">{{links_menu.0}}</a></li>
+{% endif %}">{{ links_menu.0 }}</a></li>
     <li><a href="{% url 'products:index' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
-{% endif %}">{{links_menu.1}}</a></li>
+{% endif %}">{{ links_menu.1 }}</a></li>
     <li><a href="{% url 'contacts' %}" class="{% if request.resolver_match.url_name == link.href %}
 active
-{% endif %}">{{links_menu.2}}</a></li>
-    {% if user.is_authenticated %}
-            <li>
-                <a href="{% url 'auth:edit' %}">
-                    {{ user.first_name|default:'Пользователь' }}
-                </a>
-            </li>
-        {% if user.is_superuser %}
-            <li>
-                    <a href="{% url 'admin_staff:users' %}">
-                        Админка
-                    </a>
-            </li>
-        {% endif %}
-    {% endif %}
+{% endif %}">{{ links_menu.2 }}</a></li>
     <li>
         {% if user.is_authenticated %}
-            <a href="{% url 'auth:logout' %}">выйти</a>
-            {% else %}
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" style="display: inline" role="button" id="dropdownMenuLink"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ user.first_name|default:'Пользователь' }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    {% if user.is_superuser %}
+                        <li class="dropdown-item">
+                            <a href="{% url 'admin_staff:users' %}">
+                                Админка
+                            </a>
+                        </li>
+                    {% endif %}
+                    <li class="dropdown-item">
+                        <a href="{% url 'auth:edit' %}">
+                            Профиль
+                        </a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="{% url 'orderapp:order_list' %}">
+                            Заказы</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="{% url 'auth:logout' %}">выйти</a>
+                    </li>
+                </ul>
+            </div>
+        {% else %}
+            <li>
                 <a href="{% url 'auth:login' %}">войти</a>
+            </li>
         {% endif %}
 </ul>
 <a href="#" class="search"></a>
-    {% if user.is_authenticated %}
-        <a href="{% url 'basket:index' %}" class="basket">
+{% if user.is_authenticated %}
+    <a href="{% url 'basket:index' %}" class="basket">
                 <span>
-                {% if basket %}
-                    {{ basket.0.total_cost|floatformat:0 }} руб.
-                    ({{ basket.0.total_quantity }} шт.)
-                {% endif %}
+                <br>
+                    {% if basket %}
+                        {{ basket.0.total_cost|floatformat:0 }} руб.
+                        ({{ basket.0.total_quantity }} шт.)
+                    {% endif %}
                 </span>
-        </a>
-    {% endif %}
+    </a>
+{% endif %}
 
