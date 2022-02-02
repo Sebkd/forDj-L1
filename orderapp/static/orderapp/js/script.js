@@ -85,6 +85,13 @@ window.onload = function () {
         removed: deleteOrderItem,
     });
 
+    // добавлено Fix для jquery и formset добавления товара
+    $('.add-row').on('click', function () {
+        quantity_arr.push(0);
+        price_arr.push(0);
+    })
+
+
     if (!order_total_quantity) {
         orderSummaryRecalc();
     }
