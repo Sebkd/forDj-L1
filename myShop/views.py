@@ -17,7 +17,11 @@ def index(request):
     # basket = Basket.objects.filter (user = request.user)
     # basket = get_basket(user = request.user)
     title = 'myShop'
-    products = Product.objects.all()[:4]
+    # products = Product.objects.all()[:4]
+    # 8 запросов за 4мс
+    products = Product.objects.filter(is_active=True, category__is_active=True).\
+                                        select_related('category')[:4]
+    # 4 запроса за 1мс!!!
     links_menu = ['домой', 'продукты', 'контакты', ]
     context_page = {
         'title': title,

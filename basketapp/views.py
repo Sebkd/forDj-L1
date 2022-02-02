@@ -13,7 +13,10 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def basket(request):
     # basket = get_basket (user = request.user)
-    basket_items = Basket.objects.filter(user=request.user).order_by('product__category')
+    # basket_items = Basket.objects.filter(user=request.user).order_by('product__category')
+    # 18 запросов, 4-6 мс
+    basket_items = Basket.objects.filter(user=request.user).order_by('product__category').select_related()
+    # 13 запросов, 3-4 мс
     title = 'Корзина'
     links_menu = ['домой', 'продукты', 'контакты', ]
     context_page = {
@@ -31,7 +34,8 @@ def basket_add(request, pk):
     #     return HttpResponseRedirect(reverse('products:product_detail', args=[pk]))
     product = get_object_or_404(Product, pk=pk)
 
-    basket = Basket.objects.filter(user=request.user, product=product).first()  # корзинок может
+    basket = Basket.objects.filter(user=request.user, product=product).select_related().first()
+    # корзинок может
     # быть много, берем первую из них (последнюю созданную)
 
     if not basket:
@@ -63,7 +67,7 @@ def basket_edit(request, pk, quantity):
         else:
             new_basket_item.delete()
 
-        basket_items = get_basket(user=request.user).order_by('product__category')
+        basket_items = get_basket(user=request.user).order_by('product__category').select_related()
 
         context = {
             'basket_items': basket_items,

@@ -7,7 +7,7 @@ from django.urls import reverse
 
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm, ShopUserProfileEditForm
 from authapp.models import ShopUser
-from myShop import settings
+from myShop import settings_prodaction
 
 
 def login(request):
