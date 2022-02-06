@@ -23,6 +23,31 @@ window.onload = function () {
         } else {
             price_arr[i] = 0;
         }
+
+        $('.order_form').on('click', 'input[type=number]', function () {
+        let target = event.target;
+        orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-quantity', ''));
+        if (price_arr[orderitem_num]) {
+            orderitem_quantity = parseInt(target.value);
+            delta_quantity = orderitem_quantity - quantity_arr[orderitem_num];
+            quantity_arr[orderitem_num] = orderitem_quantity;
+            orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
+        }
+        });
+
+        $('.order_form').on('click', 'input[type=checkbox]', function () {
+        let target = event.target;
+        orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-DELETE', ''));
+        if (target.checked) {
+            delta_quantity = -quantity_arr[orderitem_num];
+        } else {
+            delta_quantity = quantity_arr[orderitem_num];
+        }
+        orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
+        });
+
+
+
     }
 
 
@@ -55,27 +80,7 @@ window.onload = function () {
         $('.order_total_cost').html(order_total_price.toFixed(2).toString().replace('.',','));
     }
 
-    $('.order_form').on('change', 'input[type=number]', function () {
-        let target = event.target;
-        orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-quantity', ''));
-        if (price_arr[orderitem_num]) {
-            orderitem_quantity = parseInt(target.value);
-            delta_quantity = orderitem_quantity - quantity_arr[orderitem_num];
-            quantity_arr[orderitem_num] = orderitem_quantity;
-            orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
-        }
-    });
 
-    $('.order_form').on('click', 'input[type=checkbox]', function () {
-        let target = event.target;
-        orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-DELETE', ''));
-        if (target.checked) {
-            delta_quantity = -quantity_arr[orderitem_num];
-        } else {
-            delta_quantity = quantity_arr[orderitem_num];
-        }
-        orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
-    });
 
     // подключаем formset
     $('.formset_row').formset({
@@ -96,7 +101,7 @@ window.onload = function () {
         orderSummaryRecalc();
     }
 
-    $('.order_form select').change(function () {
+    $('.order_form select').on('change', 'click', function () {
         let target = event.target;
         orderitem_num = parseInt(target.name.match(/\d+/)[0]);
         let orderitem_product_pk = target.options[target.selectedIndex].value;
