@@ -7,6 +7,7 @@ from mainapp.models import Product, ProductCategory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 
 def get_links_menu():
@@ -111,7 +112,7 @@ def get_same_products(hot_product):
     same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk)[:3]
     return same_products
 
-
+@cache_page(3600)
 def products(request, pk=None, page=1):
     title = 'каталог'
     links_menu = ['домой', 'продукты', 'контакты', ]
