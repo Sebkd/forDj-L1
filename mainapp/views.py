@@ -1,5 +1,8 @@
 import random
 
+from django.db import connection
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import Product, ProductCategory
@@ -201,4 +204,21 @@ def product_detail(request, pk):
     }
     return render(request, 'mainapp/product_detail.html', context=context_page)
 
+# вспомогательная, для ловли и вывода в консоль
+def db_profile_by_type(prefix, type, queries):
+    update_queries = list(filter(lambda x: type in x['sql'], queries))
+    print(f'db_profile {type} for {prefix}:')
+    [print(query['sql']) for query in update_queries]
+
+
+# данный сигнал позволяет отслеживать is_active и в админке django-ской
+@receiver(pre_save, sender=ProductCategory)
+def product_is_active_update_productcategory_save(sender, instance, **kwargs):
+    if instance.pk:
+        if instance.is_active:
+            instance.product_set.update(is_active=True) #product_set это выборка с дочерних элементов, как например select_related
+        else:
+            instance.product_set.update(is_active=False)
+
+        db_profile_by_type(sender, 'UPDATE', connection.queries)
 # Create your views here.
