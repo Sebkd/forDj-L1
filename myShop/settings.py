@@ -224,8 +224,8 @@ if DEBUG:
 
 if os.name == 'posix':
     CACHE_MIDDLEWARE_ALIAS = 'default'
-    CACHE_MIDDLEWARE_SECONDS = 120
-    CACHE_MIDDLEWARE_KEY_PREFIX = 'geekshop'
+    CACHE_MIDDLEWARE_SECONDS = 10
+    CACHE_MIDDLEWARE_KEY_PREFIX = 'myShop'
     CACHES = {
     'default': {
     'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
