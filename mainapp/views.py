@@ -5,6 +5,100 @@ from django.shortcuts import render, get_object_or_404
 from mainapp.models import Product, ProductCategory
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.conf import settings
+from django.core.cache import cache
+
+
+def get_links_menu():
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = 'links_menu'
+        links_menu = cache.get(key)
+        if links_menu is None:
+            links_menu = ProductCategory.objects.filter(is_active=True)
+            cache.set(key, links_menu)
+        return links_menu
+    else:
+        return ProductCategory.objects.filter(is_active=True)
+
+
+def get_category(pk):
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = f'category_{pk}'
+        _category_cached = cache.get(key)
+        if _category_cached is None:
+            _category_cached = get_object_or_404(ProductCategory, pk=pk)
+            cache.set(key, _category_cached)
+        return _category_cached
+    else:
+        return get_object_or_404(ProductCategory, pk=pk)
+
+
+def get_products():
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = 'products'
+        _products = cache.get(key)
+        if _products is None:
+            _products = Product.objects.filter(is_active=True)
+            cache.set(key, _products)
+        return _products
+    else:
+        return Product.objects.filter(is_active=True)
+
+
+def get_product(pk):
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = f'product_{pk}'
+        _product = cache.get(key)
+        if _product is None:
+            _product = get_object_or_404(Product, pk=pk)
+            cache.set(key, _product)
+        return _product
+    else:
+        return get_object_or_404(Product, pk=pk)
+
+
+def get_products_orderd_by_price():
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = 'products_orderd_by_price'
+        _products = cache.get(key)
+        if _products is None:
+            _products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
+            cache.set(key, _products)
+        return _products
+    else:
+        return Product.objects.filter(is_active=True)
+
+
+def get_products_in_category_orderd_by_price(pk):
+    """
+    функция для кэша по memocached
+    """
+    if settings.LOW_CACHE:
+        key = f'products_in_category_orderd_by_price_{pk}'
+        _products = cache.get(key)
+        if _products is None:
+            _products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True)\
+                .order_by('price')
+            cache.set(key, _products)
+        return _products
+    else:
+        return Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True)\
+                .order_by('price')
 
 
 def get_hot_product():

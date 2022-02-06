@@ -224,7 +224,7 @@ if DEBUG:
 
 if os.name == 'posix':
     CACHE_MIDDLEWARE_ALIAS = 'default'
-    CACHE_MIDDLEWARE_SECONDS = 20
+    CACHE_MIDDLEWARE_SECONDS = 10
     CACHE_MIDDLEWARE_KEY_PREFIX = 'myShop'
     CACHES = {
     'default': {
