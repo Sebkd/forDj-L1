@@ -232,5 +232,5 @@ if os.name == 'posix':
     'LOCATION': '127.0.0.1:11211',
                 }
             }
-    LOW_CACHE = False
+    LOW_CACHE = True
 
