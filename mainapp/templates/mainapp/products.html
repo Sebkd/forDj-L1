@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static '/mainapp/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/style.css' %}">
 {% endblock %}
 
 {% block inn %}
@@ -117,7 +117,7 @@
                         <a href="{% url 'mainapp:product_detail' pk=product.pk %}">
                             <img src="/media/{{ product.image }}" alt="product">
                             <div class="text">
-                                <img src="{% static '/myShop/img/icon-hover.png' %}" alt="hover">
+                                <img src="{% static 'myShop/img/icon-hover.png' %}" alt="hover">
                                 <h4>{{ product.name }}</h4>
                                 <p>{{ product.short_desc }}</p>
                             </div>
@@ -138,7 +138,7 @@
                         <a href="{% url 'mainapp:product_detail' pk=product.pk %}"><img src="/media/{{ product.image }}"
                                                                                         alt="">
                             <div class="text">
-                                <img src="{% static '/mainapp/img/icon-hover.png' %}" alt="img">
+                                <img src="{% static 'mainapp/img/icon-hover.png' %}" alt="img">
                                 <h4>{{ product.name }}</h4>
                                 <p>{{ product.short_desc }}</p>
                             </div>
