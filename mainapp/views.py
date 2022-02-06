@@ -8,6 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
+from django.views.decorators.cache import never_cache # если не хотим кэшировать какую то функцию
 
 
 def get_links_menu():
@@ -106,6 +107,7 @@ def get_hot_product():
     # products = Product.objects.all() кэшируем
     products = get_products()
     return random.sample(list(products), 1)[0]
+
 
 
 def get_same_products(hot_product):
