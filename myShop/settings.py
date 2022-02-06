@@ -62,6 +62,7 @@ AUTH_USER_MODEL = 'authapp.ShopUser'
 LOGIN_URL = '/auth/login/'
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware', # to cached site: do not use in future
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,6 +72,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware', # to cached site: do not use in future
 ]
 
 ROOT_URLCONF = 'myShop.urls'
