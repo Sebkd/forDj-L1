@@ -34,7 +34,7 @@ class TestMainappSmoke(TestCase): # smoke_test запустить что-то и
             self.assertEqual(response.status_code, 200)
 
     def tearDown(self):
-        call_command('sqlsequencereset', 'mainapp', 'authapp', 'orderapp',' basketapp')
+        call_command('sqlsequencereset', 'mainapp', 'authapp', 'orderapp', 'basketapp')
 
 
 
