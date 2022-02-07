@@ -1,0 +1,782 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2021-12-27T19:27:03.849",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "ѕервый",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2022-01-07T17:33:50.048",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "exit",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2022-01-11T22:03:34.496",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "8",
+      "object_repr": "ƒом",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2022-01-23T01:26:43.487",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "1",
+      "object_repr": "“екущий заказ: 1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0442\\u0438\\u0432\\u0435\\u043d\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2022-01-23T13:55:50.696",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "6",
+      "object_repr": "“овар: 6 из заказа 3",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2022-01-23T13:56:10.510",
+      "user": 1,
+      "content_type": 17,
+      "object_id": "5",
+      "object_repr": "“овар: 5 из заказа 3",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2022-01-23T13:57:52.483",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "45",
+      "object_repr": "Basket object (45)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2022-01-23T14:00:32.678",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "„асы настенные (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2022-01-23T14:02:04.896",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "45",
+      "object_repr": "Basket object (45)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2022-01-23T14:04:28.173",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "45",
+      "object_repr": "Basket object (45)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2022-01-23T16:53:29.226",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "диван ( лассика)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2022-01-23T16:53:44.929",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "45",
+      "object_repr": "Basket object (45)",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2022-01-23T16:53:58.222",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "45",
+      "object_repr": "Basket object (45)",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2022-01-28T19:01:09.891",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "кресло офисное (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2022-01-28T19:01:42.136",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "кресло офисное (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2022-01-28T19:02:34.930",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "кресло офисное (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2022-02-06T19:03:14.276",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "диван ( лассика)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2022-02-06T19:03:23.999",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": " ресло релакс ( лассика)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2022-02-06T19:03:35.426",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "„асы настенные (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2022-02-06T19:03:44.482",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "кресло офисное (ќфис)",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043b\\u0438\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e \\u043d\\u0430 \\u0441\\u043a\\u043b\\u0430\\u0434\\u0435\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2022-02-06T23:44:09.236",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "10",
+      "object_repr": "ƒом",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2022-02-06T23:46:10.036",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "Ћампа домашний стиль (ƒом)",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2022-02-06T23:46:22.847",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "8",
+      "object_repr": "Ћампа домашний стиль (ƒом)",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2022-02-06T23:46:28.318",
+      "user": 1,
+      "content_type": 6,
+      "object_id": "10",
+      "object_repr": "ƒом",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "1qwk4mnhav3vtaohaswmvy7k5vv2hjol",
+    "fields": {
+      "session_data": ".eJxVjDsOwyAQRO9CHSHj5Zsyvc-AFhaCkwhLxq6i3D1YcpGUM-_NvJnHfSt-b2n1M7ErE4JdfsuA8ZnqQeiB9b7wuNRtnQM_FH7SxqeF0ut2un8HBVvpa6eBJMZBowRjBwAnjEug-kPMYtQxa5XDaAMZEio7KYylHlUA6jizzxf3hjfb:1n9BF1:-uxYQJLY87eNUp0ZG1CpxkZWx7G3pWGvi5lON3bZQec",
+      "expire_date": "2022-01-30T22:31:03.349"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jmq3uqssxfqaonf4lsxyq0clfwhw5gha",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyHsFgj16N1vIAu7SNW0SWlPjf9um_Sgt8m8N7OpSOtS49pkjgOrqwJ1-e0S5ZeMB-AnjY9J52lc5iHpQ9Enbfo-sbxvp_t3UKnVfW28Q7KdSBGbjXWOehCEPQILAGAxXAKiZ5JCyMZREbABg089dE59vt4PN7A:1nBZ42:qB4TUYUium4g01WMkg1_XP9qLFllHw1F6g93U3Yq2IU",
+      "expire_date": "2022-02-06T12:21:34.701"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "ts4s3f2xeg52rhaverfbdxf00yjdeh4m",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyHsFgj16N1vIAu7SNW0SWlPjf9um_Sgt8m8N7OpSOtS49pkjgOrqwJ1-e0S5ZeMB-AnjY9J52lc5iHpQ9Enbfo-sbxvp_t3UKnVfW28Q7KdSBGbjXWOehCEPQILAGAxXAKiZ5JCyMZREbABg089dE59vt4PN7A:1nGhJN:rOaH6gAedUI1cvNFxwyGfVwpdU-_NLRsR6LuiusBXnE",
+      "expire_date": "2022-02-20T16:10:37.202"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 5,
+    "fields": {
+      "name": "ќфис",
+      "description": "",
+      "is_active": true,
+      "created": "2021-12-27T13:21:21.021",
+      "update": "2021-12-27T13:21:21.021"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 6,
+    "fields": {
+      "name": " лассика",
+      "description": "",
+      "is_active": true,
+      "created": "2021-12-27T13:21:21.021",
+      "update": "2021-12-27T13:21:21.021"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 7,
+    "fields": {
+      "name": "ћодерн",
+      "description": "",
+      "is_active": true,
+      "created": "2021-12-27T13:21:21.029",
+      "update": "2022-01-16T12:54:52.710"
+    }
+  },
+  {
+    "model": "mainapp.productcategory",
+    "pk": 10,
+    "fields": {
+      "name": "ƒом",
+      "description": "",
+      "is_active": false,
+      "created": "2022-01-16T13:00:57.076",
+      "update": "2022-02-06T23:46:28.304"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+      "category": 5,
+      "name": "кресло офисное",
+      "image": "products_images/product-2.jpg",
+      "short_desc": "—трогий дизайн",
+      "description": "имоф€лмиыодф€дпотфдтпидтдлпидл‘“Ћƒ∆дф€ыж",
+      "price": "3500.00",
+      "quantity": 456,
+      "is_active": true
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 5,
+      "name": "„асы настенные",
+      "image": "products_images/product-4-sm.jpg",
+      "short_desc": "—трогий дизайн",
+      "description": "от€одаитфтлдпилфтлжкапижфэлжпитжлажфэжпжак",
+      "price": "7600.00",
+      "quantity": 233,
+      "is_active": true
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 6,
+      "name": " ресло релакс",
+      "image": "products_images/product-4.jpg",
+      "short_desc": "—овременный дизайн",
+      "description": "ќјќ‘ќƒќƒџѕ»ћƒ‘“Ћƒ»ћƒ“ј»ѕƒћ‘Ћƒј“Ћѕ“Ћ∆ѕ∆Ћџјѕќ∆‘яѕќ№ћ‘я",
+      "price": "17000.00",
+      "quantity": 121,
+      "is_active": true
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 6,
+      "name": "диван",
+      "image": "products_images/product-3-sm.jpg",
+      "short_desc": "удобный",
+      "description": "имф€оаиодфтдтдтидттаатжл∆ѕь∆№ѕ¬жмь\\№’\\№Ё№јѕЁƒ№џяЁƒѕ№ƒ∆Ё№џјѕЁ№Ё‘ƒџѕћ",
+      "price": "25000.00",
+      "quantity": 119,
+      "is_active": true
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 5,
+    "fields": {
+      "category": 7,
+      "name": "лампа домашн€€",
+      "image": "products_images/product-2-sm.jpg",
+      "short_desc": "необходима€ вещь",
+      "description": "€олдатиодтафы€доитдфтилатд€титдлфталитлфвтитфвлилжф€вжаритжфльижьа",
+      "price": "1299.00",
+      "quantity": 123,
+      "is_active": true
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 8,
+    "fields": {
+      "category": 10,
+      "name": "Ћампа домашний стиль",
+      "image": "products_images/product-5-sm_IpQt4L7.jpg",
+      "short_desc": "удобный",
+      "description": "”добнаофтпдтфлтплимфтлжилжуижлтьфжльимжьижлжльмжлфа ьм жафижлфжлиьжлйфьуиьжл фмижлиьмлжфьижльежи",
+      "price": "345.00",
+      "quantity": 50,
+      "is_active": false
+    }
+  },
+  {
+    "model": "authapp.shopuser",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$MWJJ83U1uiTi53phaOdzdx$weBr6DMsoAfy5MdTNGxgsYjJGJ6qeOSTRMaE9NksTHQ=",
+      "last_login": "2022-02-06T16:10:37.099",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "јндрей 1",
+      "last_name": "",
+      "email": "none@none.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2021-12-27T13:21:21.074",
+      "avatar": "",
+      "age": 30,
+      "activation_key": "",
+      "activation_key_expires": "2022-01-18T21:11:47.978",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authapp.shopuser",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$R0YwOH23epuLZBtk59JR4K$8UHK2TX7RZ0mJOHUlRhdm5qvNocvSUNMZiNjoWnlRHs=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "Andrey",
+      "first_name": "Andrey",
+      "last_name": "Serokhvostov",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-01-16T18:18:38",
+      "avatar": "",
+      "age": 41,
+      "activation_key": "",
+      "activation_key_expires": "2022-01-18T21:11:47",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authapp.shopuser",
+    "pk": 12,
+    "fields": {
+      "password": "!ZgeciKDzQhq2eKSBkHV7i2ZnzOu7QdNbyI1wFYjf",
+      "last_login": "2022-01-22T02:05:11.641",
+      "is_superuser": false,
+      "username": "nsergeeva93",
+      "first_name": "Ќаст€",
+      "last_name": "—ергеева",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-01-17T23:26:43.350",
+      "avatar": "",
+      "age": 18,
+      "activation_key": "",
+      "activation_key_expires": "2022-01-19T23:26:36.543",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authapp.shopuser",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$hVIib8xdgmM6WrU71WJG9T$ZGU5+eN+XqqOkpZ5Ou40diu5LT7Ae5GcyY/RTfmrkq0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ѕервый",
+      "first_name": "Andrey",
+      "last_name": "Serokhvostov",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2022-01-22T16:17:18",
+      "avatar": "",
+      "age": 18,
+      "activation_key": "382fe6a8807f3e4b15f7cdef6e96c267dba9b623",
+      "activation_key_expires": "2022-01-24T16:17:12",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authapp.shopuserprofile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "tagline": "",
+      "about_me": "",
+      "gender": ""
+    }
+  },
+  {
+    "model": "authapp.shopuserprofile",
+    "pk": 3,
+    "fields": {
+      "user": 8,
+      "tagline": "",
+      "about_me": "",
+      "gender": ""
+    }
+  },
+  {
+    "model": "authapp.shopuserprofile",
+    "pk": 5,
+    "fields": {
+      "user": 12,
+      "tagline": "",
+      "about_me": "",
+      "gender": "F"
+    }
+  },
+  {
+    "model": "authapp.shopuserprofile",
+    "pk": 11,
+    "fields": {
+      "user": 18,
+      "tagline": "",
+      "about_me": "",
+      "gender": ""
+    }
+  },
+  {
+    "model": "basketapp.basket",
+    "pk": 46,
+    "fields": {
+      "user": 1,
+      "product": 5,
+      "quantity": 3,
+      "add_datetime": "2022-02-02T20:07:23.151"
+    }
+  },
+  {
+    "model": "basketapp.basket",
+    "pk": 47,
+    "fields": {
+      "user": 1,
+      "product": 3,
+      "quantity": 3,
+      "add_datetime": "2022-02-02T20:07:28.730"
+    }
+  },
+  {
+    "model": "basketapp.basket",
+    "pk": 48,
+    "fields": {
+      "user": 1,
+      "product": 4,
+      "quantity": 4,
+      "add_datetime": "2022-02-06T19:03:57.817"
+    }
+  },
+  {
+    "model": "basketapp.basket",
+    "pk": 49,
+    "fields": {
+      "user": 1,
+      "product": 2,
+      "quantity": 1,
+      "add_datetime": "2022-02-06T19:04:03.319"
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "created": "2022-01-23T01:02:27.311",
+      "update": "2022-02-06T19:21:06.950",
+      "status": "FM",
+      "is_active": true
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "created": "2022-01-23T01:25:48.119",
+      "update": "2022-01-23T12:22:22.754",
+      "status": "FM",
+      "is_active": false
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "created": "2022-01-23T12:48:44.849",
+      "update": "2022-01-23T21:53:34.508",
+      "status": "FM",
+      "is_active": false
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "created": "2022-01-23T16:54:39.564",
+      "update": "2022-01-23T16:55:28.933",
+      "status": "FM",
+      "is_active": false
+    }
+  },
+  {
+    "model": "orderapp.order",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "created": "2022-01-23T20:51:58.586",
+      "update": "2022-01-23T21:32:22.954",
+      "status": "FM",
+      "is_active": false
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 1,
+    "fields": {
+      "order": 1,
+      "product": 4,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 3,
+    "fields": {
+      "order": 2,
+      "product": 1,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 5,
+    "fields": {
+      "order": 3,
+      "product": 5,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 6,
+    "fields": {
+      "order": 3,
+      "product": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 7,
+    "fields": {
+      "order": 4,
+      "product": 4,
+      "quantity": 8
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 8,
+    "fields": {
+      "order": 5,
+      "product": 4,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 9,
+    "fields": {
+      "order": 5,
+      "product": 4,
+      "quantity": 0
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 12,
+    "fields": {
+      "order": 1,
+      "product": 2,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "orderapp.orderitem",
+    "pk": 18,
+    "fields": {
+      "order": 1,
+      "product": 2,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "social_django.usersocialauth",
+    "pk": 1,
+    "fields": {
+      "user": 12,
+      "provider": "vk-oauth2",
+      "uid": "150239988",
+      "extra_data": "{\"auth_time\": 1642806311, \"id\": 150239988, \"expires\": 86400, \"access_token\": \"86ea85884d0c08034b6ec717597e4963f282efd0b39eec4df89b7eac63465ea6599b710bbcbc0aad68e3d\", \"token_type\": null}",
+      "created": "2022-01-17T23:26:43.365",
+      "modified": "2022-01-22T02:05:11.624"
+    }
+  }
+]
