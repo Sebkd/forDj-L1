@@ -16,7 +16,7 @@ class TestMainappSmoke(TestCase): # smoke_test запустить что-то и
         response = self.client.get('/') # попадает все что сервер ответит на запрос GET
         self.assertEqual(response.status_code, 200)
 
-        response = self.client.get('contact/')
+        response = self.client.get('/contacts/')
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get('/products/')
