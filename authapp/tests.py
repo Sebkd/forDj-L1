@@ -103,7 +103,7 @@ class TestUserManagement(TestCase):
 
         new_user = ShopUser.objects.get(username=new_user_data['username'])
 
-        activation_url = f"{settings.DOMAIN_NAME}/auth/verify/{new_user_data['email']}/{new_user.activation_key} / "
+        activation_url = f'{settings.DOMAIN_NAME}/auth/verify/{new_user_data["email"]}/{new_user.activation_key}/'
 
         response = self.client.get(activation_url)
         print(activation_url)
