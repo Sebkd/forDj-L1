@@ -42,6 +42,7 @@ class TestUserManagement(TestCase):
         response = self.client.get('/')
         self.assertContains(response, 'Пользователь', status_code=200)
         self.assertEqual(response.context['user'], self.user)
+        # self.assertIn('Пользователь', response.content.decode())
 
     def test_basket_login_redirect(self):
 
@@ -59,8 +60,26 @@ class TestUserManagement(TestCase):
         self.assertEqual(response.request['PATH_INFO'], '/basket/')
         # self.assertIn('Ваша корзина, Пользователь', response.content.decode()) #не писали такое в коде!
 
+    def test_user_logout(self):
 
-        # self.assertIn('Пользователь', response.content.decode())
+        # данные пользователя
+        self.client.login(username='tarantino', password='geekbrains')
+
+        # логинимся
+        response = self.client.get('/auth/login/')
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.context['user'].is_anonymous)
+
+        # выходим из системы
+        response = self.client.get('/auth/logout/')
+        self.assertEqual(response.status_code, 302)
+
+        # главная после выхода
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['user'].is_anonymous)
+
+
     def tearDown(self):
         call_command('sqlsequencereset', 'mainapp', 'authapp', 'orderapp', 'basketapp')
 
