@@ -52,12 +52,12 @@ class TestUserManagement(TestCase):
 
         # с логином все должно быть хорошо
         self.client.login(username='tarantino', password='geekbrains')
-        
+
         response = self.client.get('/basket/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(list(response.context['basket']), [])
         self.assertEqual(response.request['PATH_INFO'], '/basket/')
-        self.assertIn('Ваша корзина, Пользователь', response.content.decode())
+        # self.assertIn('Ваша корзина, Пользователь', response.content.decode()) #не писали такое в коде!
 
 
         # self.assertIn('Пользователь', response.content.decode())
